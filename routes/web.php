@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,17 @@ Route::get('/contacts/{id}',[\App\Http\Controllers\ContactController::class,'sho
 Route::get('contacts/{id}/edit',[\App\Http\Controllers\ContactController::class,'edit'])->name('contacts.edit');
 Route::put('contacts/{id}' , [\App\Http\Controllers\ContactController::class ,'update'])->name('contacts.update');
 Route::delete('contacts/{id}' , [\App\Http\Controllers\ContactController::class ,'destroy'])->name('contacts.destroy');
+
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Auth::routes();
+//
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//
+//Auth::routes();
+//
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

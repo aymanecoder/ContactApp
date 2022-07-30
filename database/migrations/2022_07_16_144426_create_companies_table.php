@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('email');
             $table->timestamps();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
